@@ -160,6 +160,18 @@ ifeq ($(strip $(AUDIO_FEATURE_PCM_IOCTL_ENABLED)),true)
     LOCAL_CFLAGS += -DPCM_IOCTL_ENABLED
 endif
 
+ifeq ($(strip $(AUDIO_FEATURE_DISABLED_HWDEP_CAL)),true)
+    LOCAL_CFLAGS += -DHWDEP_CAL_DISABLED
+endif
+
+ifeq ($(strip $(AUDIO_FEATURE_I2S_SPEAKER_ENABLED)),true)
+    LOCAL_CFLAGS += -DI2S_SPEAKER_ENABLED
+endif
+
+ifeq ($(strip $(AUDIO_FEATURE_DYNAMIC_MIXER_PATHS)),true)
+  LOCAL_CFLAGS += -DDYNAMIC_MIXER_PATHS
+endif
+
 LOCAL_COPY_HEADERS_TO   := mm-audio
 LOCAL_COPY_HEADERS      := audio_extn/audio_defs.h
 
